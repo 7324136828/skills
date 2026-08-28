@@ -1,4 +1,5 @@
 # Mail & document toolkit
+<img width="848" height="659" alt="image" src="https://github.com/user-attachments/assets/f9420dfd-ad43-4b20-b5f1-8dbcda9277a6" />
 
 Local, dependency-light Python tools for three jobs:
 
