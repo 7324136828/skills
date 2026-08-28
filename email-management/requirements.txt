@@ -1,0 +1,19 @@
+# The audit pipeline (eml_extract / sender_groups / inbox_summary / worklist /
+# gen_report) and html_split use only the Python standard library -- nothing to
+# install. So does imap_download.py and mbox_to_eml.py.
+#
+# The extras below are only needed for the digest pipeline:
+
+# summarize_emails.py -- talks to a local Ollama server
+ollama>=0.3
+
+# tts_kokoro.py -- local neural TTS (downloads the Kokoro-82M model on first run)
+kokoro>=0.9
+numpy>=1.24
+
+# tts_kokoro.py and tts_sapi.py -- WAV/MP3 handling
+pydub>=0.25
+imageio-ffmpeg>=0.4
+
+# tts_sapi.py additionally needs Windows and PowerShell, but no extra packages
+# beyond pydub + imageio-ffmpeg.

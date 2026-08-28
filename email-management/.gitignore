@@ -1,0 +1,27 @@
+# Real configuration (the .example.json files are the ones that are tracked)
+config/credentials.json
+config/aliases.json
+config/annotations.json
+
+# Downloaded mail and everything derived from it
+output/
+audit_out/
+*.eml
+*.jsonl
+_summary.txt
+summary.txt
+summary.mp3
+*.wav
+*.log
+.checkpoint.json
+
+# Reports and work lists contain real sender addresses
+inbox_audit.html
+*worklist*.csv
+*worklist*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

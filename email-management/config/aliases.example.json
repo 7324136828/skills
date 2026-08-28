@@ -1,0 +1,41 @@
+{
+  "_comment": [
+    "Sender-grouping configuration, read by sender_groups.py and passed on to",
+    "inbox_summary.py. Everything here is optional -- the pipeline runs with an",
+    "empty config, this file only improves how sending identities are merged.",
+    "",
+    "domain_aliases:    registrable domain -> parent brand. For dedicated bulk-mail",
+    "                   domains that belong to exactly one brand, so that a service's",
+    "                   account mail and its marketing mail land on the same row.",
+    "split_per_address: shared platforms where one registrable domain fronts many",
+    "                   unrelated senders (mass-mail platforms, free webmail). Each",
+    "                   sending address becomes its own group instead.",
+    "address_brand:     one sending address on a shared platform, pinned to the brand",
+    "                   it really belongs to. Overrides split_per_address.",
+    "",
+    "The entries below are illustrative. Replace them with what your own export",
+    "shows -- run the pipeline once, look at report/senders.csv, and merge the",
+    "domains that obviously belong together."
+  ],
+
+  "domain_aliases": {
+    "e.example-brand.com": "example-brand.com",
+    "example-brand-email.com": "example-brand.com",
+    "mail.example-shop.net": "example-shop.net"
+  },
+
+  "split_per_address": [
+    "ccsend.com",
+    "wixemails.com",
+    "wixsiteautomations.com",
+    "gmail.com",
+    "yahoo.com",
+    "hotmail.com",
+    "outlook.com",
+    "icloud.com"
+  ],
+
+  "address_brand": {
+    "newsletter@studio.ccsend.com": "example-studio.com"
+  }
+}

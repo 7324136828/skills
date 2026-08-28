@@ -1,0 +1,40 @@
+{
+  "_comment": [
+    "Hand-checked facts about ONE mailbox, kept out of the code so the pipeline",
+    "itself stays generic. Both sections are optional; an empty file is fine.",
+    "",
+    "route_overrides: sender address -> any of action / method / target / note.",
+    "  Use it when reading the raw message proves the automated scan wrong, e.g.",
+    "  a sender with no List-Unsubscribe header whose only opt-out is a settings",
+    "  page inside the account.",
+    "  action  = unsubscribe_then_bulk_delete | unsubscribe_keep_account |",
+    "            settings_or_block | keep_archive",
+    "  method  = one_click_header | http_header | body_link | mailto_header |",
+    "            account_settings | none_found",
+    "service_notes:   brand key (as it appears in summary.json) -> one line shown in",
+    "                 the report's 'What it is' column.",
+    "",
+    "The entries below are placeholders showing the shape. Delete them before a",
+    "real run."
+  ],
+
+  "route_overrides": {
+    "noreply@example-listings.com": {
+      "action": "settings_or_block",
+      "method": "account_settings",
+      "target": "https://example-listings.com/account/notifications",
+      "note": "Saved-search alerts. No List-Unsubscribe header and the footer link is tracker-wrapped; turn the alerts off in the account and delete the saved searches."
+    },
+    "billing@example-service.com": {
+      "action": "keep_archive",
+      "method": "none_found",
+      "target": "",
+      "note": "Invoices. Billing records worth keeping -- never unsubscribe."
+    }
+  },
+
+  "service_notes": {
+    "example-service.com": "Paid subscription, billed monthly. Receipts only.",
+    "example-brand.com": "Loyalty account created at checkout; all mail since is promotional."
+  }
+}
